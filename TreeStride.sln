@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{EFF3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeStride.Domain", "TreeStride.Domain\TreeStride.Domain.csproj", "{40A9384B-3408-4D36-8A67-BF5FCCD51679}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeStride.Data", "TreeStride.Data\TreeStride.Data.csproj", "{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeStride.Data", "TreeStride.Data\TreeStride.Data.csproj", "{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeStride.Service", "TreeStride.Service\TreeStride.Service.csproj", "{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{40A9384B-3408-4D36-8A67-BF5FCCD51679} = {B7DFE5D4-FACD-48E0-836D-C199D62F4EB8}
 		{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED} = {E8B3FF4C-7AE9-4593-95B9-949BB572FDA8}
+		{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4} = {EFF30AC6-D119-4A10-B834-B641DEFDF495}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16B427B3-9555-4485-B8D4-49B29B1BDF43}
