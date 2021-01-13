@@ -5,7 +5,7 @@ using TreeStride.Service.Base;
 
 namespace TreeStride.Service.Queries.QueryListDevices
 {
-    class ResponseListDevices : QueryResponse
+    public class ResponseListDevices : QueryResponse
     {
     }
 }
