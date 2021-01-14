@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeStride.Domain", "TreeSt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeStride.Data", "TreeStride.Data\TreeStride.Data.csproj", "{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeStride.Service", "TreeStride.Service\TreeStride.Service.csproj", "{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeStride.Service", "TreeStride.Service\TreeStride.Service.csproj", "{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

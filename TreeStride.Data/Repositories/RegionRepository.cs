@@ -7,33 +7,33 @@ using TreeStride.Domain.Models;
 
 namespace TreeStride.Data.Repositories
 {
-    public class DeviceRepository : IDeviceRepository
+    public class RegionRepository : IRegionRepository
     {
         private readonly DataContext _context;
 
-        public DeviceRepository(DataContext context)
+        public RegionRepository(DataContext context)
         {
             _context = context;
         }
-        
-        public void Create(Device device)
+
+        public void Create(Region device)
         {
             _context.Add(device);
         }
 
-        public void Update(Device device)
+        public void Update(Region device)
         {
             _context.Update(device);
         }
 
-        public void Delete(Device device)
+        public void Delete(Region device)
         {
             _context.Remove(device);
         }
 
-        public async Task<Device> GetById(int deviceId)
+        public async Task<Region> GetById(int deviceId)
         {
-            return await _context.FindAsync<Device>(deviceId);
+            return await _context.FindAsync<Region>(deviceId);
         }
 
         public async Task<bool> AnyAsync(int deviceId)
@@ -41,9 +41,9 @@ namespace TreeStride.Data.Repositories
             return await _context.Device.AnyAsync(device => device.Id == deviceId);
         }
 
-        public IQueryable<Device> Query()
+        public IQueryable<Region> Query()
         {
-            return _context.Device.AsQueryable();
+            return _context.Region.AsQueryable();
         }
     }
 }
