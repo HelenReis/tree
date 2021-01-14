@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TreeStride.Data.Data;
+using TreeStride.DI;
+using TreeStride.Service.Base;
 using TreeStride.Service.Queries.Base;
 using TreeStride.Service.Queries.QueryListDevices;
 
@@ -31,8 +33,9 @@ namespace TreeStride
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("Database")));
-            services.AddTransient<IQueryExecutor, QueryExecutor>();
-            
+            services.AddTransient<IQueryExecutor<QueryParam, QueryResponse>, QueryListDevices>();
+            ConfigureDI.Configure(services);
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

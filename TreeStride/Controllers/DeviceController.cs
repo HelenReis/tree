@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using TreeStride.Service.Base;
 using TreeStride.Service.Queries.Base;
 using TreeStride.Service.Queries.QueryListDevices;
 
@@ -9,9 +10,9 @@ namespace TreeStride.Controllers
     [Route("[controller]")]
     public class DeviceController : ControllerBase
     {
-        private readonly IQueryExecutor _executor;
+        private readonly IQueryExecutor<QueryParam, QueryResponse> _executor;
 
-        public DeviceController(IQueryExecutor executor)
+        public DeviceController(IQueryExecutor<QueryParam, QueryResponse> executor)
         {
             _executor = executor;
         }
