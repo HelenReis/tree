@@ -1,42 +1,38 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using TreeStride.Data.Contract;
-using TreeStride.Data.Repositories.Transaction.UnitOfWork;
-using TreeStride.Domain.Models;
-using TreeStride.Service.Base;
 using TreeStride.Service.Queries.Base;
 
 namespace TreeStride.Service.Queries.QueryListDevices
 {
-    public class QueryListDevices : IQueryExecutor<QueryParam, QueryResponse>
+    public class QueryListDevices : IQueryExecutor<ParamListDevices, ResponseListDevices>
     {
         private readonly IDeviceRepository _deviceRepository;
-        private readonly IRegionRepository _regionRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        public QueryListDevices(IDeviceRepository deviceRepository, IRegionRepository regionRepository, IUnitOfWork unitOfWork)
+        public QueryListDevices(IDeviceRepository deviceRepository)
         {
             _deviceRepository = deviceRepository;
-            _regionRepository = regionRepository;
-            _unitOfWork = unitOfWork;
         }
 
-        public async Task<TResponse> ExecuteQuery<TParam, TResponse>(TParam param)
-            where TParam : QueryParam
-            where TResponse : QueryResponse
+        public async Task<ResponseListDevices> ExecuteQuery(ParamListDevices param)
         {
-
             try
             {
-                var region = new Region(5, 5);
-                _regionRepository.Create(region);
-                await _unitOfWork.Commit();
-                throw new NotImplementedException();
-            }
+                var devices = await _deviceRepository
+                    .Query()
+                    .Where(d => d.Id == param.DeviceId)
+                    .ToListAsync();
 
+                return new ResponseListDevices
+                {
+                    Devices = devices
+                };
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw new NotImplementedException();
+                throw new Exception(ex.Message);
             }
         }
     }

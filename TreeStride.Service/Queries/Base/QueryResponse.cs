@@ -6,5 +6,6 @@ namespace TreeStride.Service.Base
 {
     public class QueryResponse
     {
+
     }
 }

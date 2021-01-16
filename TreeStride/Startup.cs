@@ -33,7 +33,7 @@ namespace TreeStride
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("Database")));
-            services.AddTransient<IQueryExecutor<QueryParam, QueryResponse>, QueryListDevices>();
+            services.AddTransient<IQueryExecutor<ParamListDevices, ResponseListDevices>, QueryListDevices>();
             ConfigureDI.Configure(services);
 
             services.AddControllers();

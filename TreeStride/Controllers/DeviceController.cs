@@ -23,7 +23,7 @@ namespace TreeStride.Controllers
         [Route("{deviceId:int}")]
         public async virtual Task<IActionResult> GetDevice([FromRoute] int deviceId)
         {
-            var res = await _executor.ExecuteQuery<ParamListDevices, ResponseListDevices>(new ParamListDevices());
+            var res = await _executor.ExecuteQuery(new ParamListDevices(deviceId));
 
             return Ok(res);
 
