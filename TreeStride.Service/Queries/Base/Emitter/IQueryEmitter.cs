@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TreeStride.Service.Base;
 
-namespace TreeStride.Service.Queries.Base
+namespace TreeStride.Service.Queries.Base.Emitter
 {
     public interface IQueryEmitter
     {

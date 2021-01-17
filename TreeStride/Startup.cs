@@ -1,22 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TreeStride.Data.Data;
 using TreeStride.DI;
-using TreeStride.Service.Base;
 using TreeStride.Service.Queries.Base;
 using TreeStride.Service.Queries.QueryListDevices;
+using TreeStride.Service.Queries.Base.Executor;
 
 namespace TreeStride
 {
@@ -33,7 +26,7 @@ namespace TreeStride
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("Database")));
-            services.AddTransient<IQueryExecutor<ParamListDevices, ResponseListDevices>, QueryListDevices>();
+            services.AddTransient<IQueryExecutor<ParamListDevices, ResponseListDevices>, QueryExecutor<ParamListDevices, ResponseListDevices>();
             ConfigureDI.Configure(services);
 
             services.AddControllers();

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using TreeStride.Service.Base;
 using TreeStride.Service.Queries.Base;
+using TreeStride.Service.Queries.Base.Emitter;
 using TreeStride.Service.Queries.QueryListDevices;
 
 namespace TreeStride.Controllers
@@ -11,19 +12,25 @@ namespace TreeStride.Controllers
     public class DeviceController : ControllerBase
     {
         private readonly IQueryExecutor<QueryParam, QueryResponse> _executor;
+        private readonly IQueryEmitter _emitter;
 
-        public DeviceController(IQueryExecutor<QueryParam, QueryResponse> executor)
+        public DeviceController(
+            IQueryExecutor<QueryParam, QueryResponse> executor,
+            IQueryEmitter emitter
+            )
         {
             _executor = executor;
+            _emitter = emitter;
         }
 
         /// <remarks>returns device by id</remarks>
         /// <param name="deviceId">deviceId</param>
         [HttpGet]
         [Route("{deviceId:int}")]
-        public async virtual Task<IActionResult> GetDevice([FromRoute] int deviceId)
+        public async virtual Task<IActionResult> GetDevices([FromRoute] int deviceId)
         {
-            var res = await _executor.ExecuteQuery(new ParamListDevices(deviceId));
+            //var res = await _executor.ExecuteQuery(new ParamListDevices(deviceId));
+            var res = await _emitter.ExecuteQuery<ParamListDevices, ResponseListDevices>(new ParamListDevices(deviceId));
 
             return Ok(res);
 

@@ -8,6 +8,6 @@ namespace TreeStride.Service.Queries.QueryListDevices
 {
     public class ResponseListDevices : QueryResponse
     {
-        public IEnumerable<Device> Devices { get; set; }
+        public Device Device { get; set; }
     }
 }

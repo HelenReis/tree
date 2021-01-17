@@ -12,4 +12,8 @@
     <ProjectReference Include="..\TreeStride.Data\TreeStride.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Queries\Device\" />
+  </ItemGroup>
+
 </Project>

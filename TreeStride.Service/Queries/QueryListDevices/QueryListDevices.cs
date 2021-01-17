@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using TreeStride.Data.Contract;
 using TreeStride.Service.Queries.Base;
+using TreeStride.Service.Queries.Base.Executor;
 
 namespace TreeStride.Service.Queries.QueryListDevices
 {
-    public class QueryListDevices : IQueryExecutor<ParamListDevices, ResponseListDevices>
+    public class QueryListDevices : QueryExecutor<ParamListDevices, ResponseListDevices>
     {
         private readonly IDeviceRepository _deviceRepository;
         public QueryListDevices(IDeviceRepository deviceRepository)
@@ -15,18 +16,16 @@ namespace TreeStride.Service.Queries.QueryListDevices
             _deviceRepository = deviceRepository;
         }
 
-        public async Task<ResponseListDevices> ExecuteQuery(ParamListDevices param)
+        public async override Task<ResponseListDevices> ExecuteQuery(ParamListDevices param)
         {
             try
             {
-                var devices = await _deviceRepository
-                    .Query()
-                    .Where(d => d.Id == param.DeviceId)
-                    .ToListAsync();
+                var device = await _deviceRepository
+                    .GetById(param.DeviceId);
 
                 return new ResponseListDevices
                 {
-                    Devices = devices
+                    Device = device
                 };
             }
             catch (Exception ex)
@@ -35,5 +34,24 @@ namespace TreeStride.Service.Queries.QueryListDevices
                 throw new Exception(ex.Message);
             }
         }
+
+        /*public async Task<ResponseListDevices> ExecuteQuery(ParamListDevices param)
+        {
+            try
+            {
+                var device = await _deviceRepository
+                    .GetById(param.DeviceId);
+
+                return new ResponseListDevices
+                {
+                    Device = device
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw new Exception(ex.Message);
+            }
+        }*/
     }
 }
