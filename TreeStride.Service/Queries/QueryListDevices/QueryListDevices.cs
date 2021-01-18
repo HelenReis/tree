@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
+﻿using System;
 using System.Threading.Tasks;
 using TreeStride.Data.Contract;
-using TreeStride.Service.Queries.Base;
 using TreeStride.Service.Queries.Base.Executor;
 
 namespace TreeStride.Service.Queries.QueryListDevices
