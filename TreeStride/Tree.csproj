@@ -20,8 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tree.Data\Tree.Data.csproj" />
-    <ProjectReference Include="..\Tree.Service\Tree.Service.csproj" />
+    <ProjectReference Include="..\TreeStride.Data\Tree.Data.csproj" />
+    <ProjectReference Include="..\TreeStride.Service\Tree.Service.csproj" />
+    <ProjectReference Include="..\TreeStride.Data\Tree.Data.csproj" />
+    <ProjectReference Include="..\TreeStride.Service\Tree.Service.csproj" />
   </ItemGroup>
 
 </Project>

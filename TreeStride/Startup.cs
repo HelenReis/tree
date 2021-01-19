@@ -10,6 +10,7 @@ using Tree.DI;
 using Tree.Service.Queries.Base;
 using Tree.Service.Queries.QueryListDevices;
 using Tree.Service.Queries.Base.Executor;
+using Tree.Service.Queries.Base.Emitter;
 
 namespace Tree
 {

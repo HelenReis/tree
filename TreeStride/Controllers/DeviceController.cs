@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Tree.Service.Base;
 using Tree.Service.Queries.Base;
 using Tree.Service.Queries.Base.Emitter;
+using Tree.Service.Queries.Base.Executor;
 using Tree.Service.Queries.QueryListDevices;
 
 namespace Tree.Controllers
@@ -12,12 +13,15 @@ namespace Tree.Controllers
     public class DeviceController : ControllerBase
     {
         private readonly IQueryEmitter _emitter;
+        private readonly QueryExecutor<ParamListDevices, ResponseListDevices> _executor;
 
         public DeviceController(
-            IQueryEmitter emitter
+            IQueryEmitter emitter,
+            QueryExecutor<ParamListDevices, ResponseListDevices> executor
             )
         {
             _emitter = emitter;
+            _executor = executor;
         }
 
         /// <remarks>returns device by id</remarks>
@@ -27,7 +31,7 @@ namespace Tree.Controllers
         public async virtual Task<IActionResult> GetDevices([FromRoute] int deviceId)
         {
             //var res = await _executor.ExecuteQuery(new ParamListDevices(deviceId));
-            var res = await _emitter.ExecuteQuery<ParamListDevices, ResponseListDevices>(new ParamListDevices(deviceId));
+            var res = await _executor.ExecuteQuery(new ParamListDevices(deviceId));
 
             return Ok(res);
 

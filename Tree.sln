@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tree", "TreeStride\Tree.csproj", "{6D5837A8-43AE-4829-9414-D8AD6FC2EC88}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4} = {0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}
+		{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED} = {179FF5FF-2761-491E-8B1C-CC26DA9EE4ED}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{E8B3FF4C-7AE9-4593-95B9-949BB572FDA8}"
 EndProject
@@ -13,11 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{77957F94
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{EFF30AC6-D119-4A10-B834-B641DEFDF495}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeStride.Domain", "TreeStride.Domain\TreeStride.Domain.csproj", "{40A9384B-3408-4D36-8A67-BF5FCCD51679}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tree.Domain", "TreeStride.Domain\Tree.Domain.csproj", "{40A9384B-3408-4D36-8A67-BF5FCCD51679}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeStride.Data", "TreeStride.Data\TreeStride.Data.csproj", "{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tree.Data", "TreeStride.Data\Tree.Data.csproj", "{179FF5FF-2761-491E-8B1C-CC26DA9EE4ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeStride.Service", "TreeStride.Service\TreeStride.Service.csproj", "{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tree.Service", "TreeStride.Service\Tree.Service.csproj", "{0D8275E9-E7EE-4B7A-98E2-39094BD92EF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

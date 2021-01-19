@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tree.Domain\Tree.Domain.csproj" />
+    <ProjectReference Include="..\TreeStride.Domain\Tree.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
