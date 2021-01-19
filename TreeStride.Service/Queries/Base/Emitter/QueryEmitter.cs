@@ -9,6 +9,11 @@ namespace Tree.Service.Queries.Base.Emitter
 {
     public class QueryEmitter : IQueryEmitter
     {
+        public QueryEmitter()
+        {
+
+        }
+
         public async Task<TResponse> ExecuteQuery<TParam, TResponse>(TParam param)
             where TParam : QueryParam
             where TResponse : QueryResponse

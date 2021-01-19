@@ -26,7 +26,8 @@ namespace Tree
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("Database")));
-            services.AddTransient<IQueryExecutor<ParamListDevices, ResponseListDevices>, QueryExecutor<ParamListDevices, ResponseListDevices>();
+            services.AddTransient<QueryExecutor<ParamListDevices, ResponseListDevices>, QueryListDevices>();
+            services.AddTransient<IQueryEmitter, QueryEmitter>();
             ConfigureDI.Configure(services);
 
             services.AddControllers();

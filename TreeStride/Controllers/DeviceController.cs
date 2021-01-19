@@ -11,15 +11,12 @@ namespace Tree.Controllers
     [Route("[controller]")]
     public class DeviceController : ControllerBase
     {
-        private readonly IQueryExecutor<QueryParam, QueryResponse> _executor;
         private readonly IQueryEmitter _emitter;
 
         public DeviceController(
-            IQueryExecutor<QueryParam, QueryResponse> executor,
             IQueryEmitter emitter
             )
         {
-            _executor = executor;
             _emitter = emitter;
         }
 
