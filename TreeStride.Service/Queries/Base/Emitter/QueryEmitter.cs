@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TreeStride.Service.Base;
-using TreeStride.Service.Queries.Base.Executor;
+using Tree.Service.Base;
+using Tree.Service.Queries.Base.Executor;
 
-namespace TreeStride.Service.Queries.Base.Emitter
+namespace Tree.Service.Queries.Base.Emitter
 {
     public class QueryEmitter : IQueryEmitter
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TreeStride.Domain.Models;
+using Tree.Domain.Models;
 
-namespace TreeStride.Data.Data
+namespace Tree.Data.Data
 {
     public class DataContext : DbContext
     {

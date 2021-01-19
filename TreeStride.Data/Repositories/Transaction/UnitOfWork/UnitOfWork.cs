@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TreeStride.Data.Data;
+using Tree.Data.Data;
 
-namespace TreeStride.Data.Repositories.Transaction.UnitOfWork
+namespace Tree.Data.Repositories.Transaction.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

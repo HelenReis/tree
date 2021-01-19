@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TreeStride.Service.Base;
+using Tree.Service.Base;
 
-namespace TreeStride.Service.Contract
+namespace Tree.Service.Contract
 {
     public interface IQueryService<TParam, TResponse> 
         where TParam : QueryParam

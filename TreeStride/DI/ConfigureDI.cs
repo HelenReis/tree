@@ -2,11 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TreeStride.Data.Contract;
-using TreeStride.Data.Repositories;
-using TreeStride.Data.Repositories.Transaction.UnitOfWork;
+using Tree.Data.Contract;
+using Tree.Data.Repositories;
+using Tree.Data.Repositories.Transaction.UnitOfWork;
 
-namespace TreeStride.DI
+namespace Tree.DI
 {
     public static class ConfigureDI
     {

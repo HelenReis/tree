@@ -4,6 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>f292a89f-5c3e-4699-943e-e6407fd911c4</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <AssemblyName>Tree</AssemblyName>
+    <RootNamespace>Tree</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TreeStride.Data\TreeStride.Data.csproj" />
-    <ProjectReference Include="..\TreeStride.Service\TreeStride.Service.csproj" />
+    <ProjectReference Include="..\Tree.Data\Tree.Data.csproj" />
+    <ProjectReference Include="..\Tree.Service\Tree.Service.csproj" />
   </ItemGroup>
 
 </Project>

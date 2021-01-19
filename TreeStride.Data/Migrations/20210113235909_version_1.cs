@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.Data.EntityFrameworkCore.Metadata;
 
-namespace TreeStride.Data.Migrations
+namespace Tree.Data.Migrations
 {
     public partial class version_1 : Migration
     {

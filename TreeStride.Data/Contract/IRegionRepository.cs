@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using TreeStride.Domain.Models;
+using Tree.Domain.Models;
 
-namespace TreeStride.Data.Contract
+namespace Tree.Data.Contract
 {
     public interface IRegionRepository
     {

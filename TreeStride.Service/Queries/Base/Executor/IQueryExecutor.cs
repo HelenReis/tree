@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using TreeStride.Service.Base;
+using Tree.Service.Base;
 
-namespace TreeStride.Service.Queries.Base.Executor
+namespace Tree.Service.Queries.Base.Executor
 {
     public interface IQueryExecutor<TParam, TResponse> 
         where TParam : QueryParam

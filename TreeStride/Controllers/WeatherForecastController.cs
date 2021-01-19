@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TreeStride.Controllers
+namespace Tree.Controllers
 {
     [ApiController]
     [Route("[controller]")]

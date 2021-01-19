@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TreeStride.Service.Base
+namespace Tree.Service.Base
 {
     public class QueryResponse
     {

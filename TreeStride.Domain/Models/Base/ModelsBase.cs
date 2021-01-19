@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TreeStride.Domain.Models.Base
+namespace Tree.Domain.Models.Base
 {
     public class ModelsBase
     {

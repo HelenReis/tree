@@ -5,13 +5,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using TreeStride.Data.Data;
-using TreeStride.DI;
-using TreeStride.Service.Queries.Base;
-using TreeStride.Service.Queries.QueryListDevices;
-using TreeStride.Service.Queries.Base.Executor;
+using Tree.Data.Data;
+using Tree.DI;
+using Tree.Service.Queries.Base;
+using Tree.Service.Queries.QueryListDevices;
+using Tree.Service.Queries.Base.Executor;
 
-namespace TreeStride
+namespace Tree
 {
     public class Startup
     {
@@ -32,7 +32,7 @@ namespace TreeStride
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TreeStride", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "", Version = "v1" });
             });
         }
 
@@ -43,7 +43,7 @@ namespace TreeStride
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TreeStride v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tree v1"));
             }
 
             app.UseHttpsRedirection();

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TreeStride.Domain.DTOs.Base
+namespace Tree.Domain.DTOs.Base
 {
     public class DeviceDTO
     {

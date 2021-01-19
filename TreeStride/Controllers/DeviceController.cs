@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using TreeStride.Service.Base;
-using TreeStride.Service.Queries.Base;
-using TreeStride.Service.Queries.Base.Emitter;
-using TreeStride.Service.Queries.QueryListDevices;
+using Tree.Service.Base;
+using Tree.Service.Queries.Base;
+using Tree.Service.Queries.Base.Emitter;
+using Tree.Service.Queries.QueryListDevices;
 
-namespace TreeStride.Controllers
+namespace Tree.Controllers
 {
     [ApiController]
     [Route("[controller]")]

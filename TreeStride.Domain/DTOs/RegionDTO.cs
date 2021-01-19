@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TreeStride.Domain.DTOs.Base;
+using Tree.Domain.DTOs.Base;
 
-namespace TreeStride.Domain.DTOs
+namespace Tree.Domain.DTOs
 {
     public class RegionDTO : DtosBase
     {

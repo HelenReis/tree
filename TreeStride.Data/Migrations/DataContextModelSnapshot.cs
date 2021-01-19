@@ -3,9 +3,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TreeStride.Data.Data;
+using Tree.Data.Data;
 
-namespace TreeStride.Data.Migrations
+namespace Tree.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -17,7 +17,7 @@ namespace TreeStride.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.1.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("TreeStride.Domain.Models.Device", b =>
+            modelBuilder.Entity("Tree.Domain.Models.Device", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace TreeStride.Data.Migrations
                     b.ToTable("Device");
                 });
 
-            modelBuilder.Entity("TreeStride.Domain.Models.Region", b =>
+            modelBuilder.Entity("Tree.Domain.Models.Region", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace TreeStride.Data.Migrations
                     b.ToTable("Region");
                 });
 
-            modelBuilder.Entity("TreeStride.Domain.Models.SensorReading", b =>
+            modelBuilder.Entity("Tree.Domain.Models.SensorReading", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -75,18 +75,18 @@ namespace TreeStride.Data.Migrations
                     b.ToTable("SensorReading");
                 });
 
-            modelBuilder.Entity("TreeStride.Domain.Models.Device", b =>
+            modelBuilder.Entity("Tree.Domain.Models.Device", b =>
                 {
-                    b.HasOne("TreeStride.Domain.Models.Region", "Region")
+                    b.HasOne("Tree.Domain.Models.Region", "Region")
                         .WithMany("Devices")
                         .HasForeignKey("RegionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TreeStride.Domain.Models.SensorReading", b =>
+            modelBuilder.Entity("Tree.Domain.Models.SensorReading", b =>
                 {
-                    b.HasOne("TreeStride.Domain.Models.Device", null)
+                    b.HasOne("Tree.Domain.Models.Device", null)
                         .WithMany("SensorReadings")
                         .HasForeignKey("DeviceId");
                 });

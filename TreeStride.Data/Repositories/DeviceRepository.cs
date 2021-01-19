@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using TreeStride.Data.Contract;
-using TreeStride.Data.Data;
-using TreeStride.Domain.Models;
+using Tree.Data.Contract;
+using Tree.Data.Data;
+using Tree.Domain.Models;
 
-namespace TreeStride.Data.Repositories
+namespace Tree.Data.Repositories
 {
     public class DeviceRepository : IDeviceRepository
     {

@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/TreeStride",
+      "applicationUrl": "http://localhost/Tree",
       "sslPort": 0
     },
     "iisExpress": {
@@ -21,7 +21,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TreeStride": {
+    "Tree": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

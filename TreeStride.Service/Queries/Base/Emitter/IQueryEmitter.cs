@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TreeStride.Service.Base;
+using Tree.Service.Base;
 
-namespace TreeStride.Service.Queries.Base.Emitter
+namespace Tree.Service.Queries.Base.Emitter
 {
     public interface IQueryEmitter
     {

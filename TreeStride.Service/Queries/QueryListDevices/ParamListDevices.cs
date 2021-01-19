@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TreeStride.Service.Base;
+using Tree.Service.Base;
 
-namespace TreeStride.Service.Queries.QueryListDevices
+namespace Tree.Service.Queries.QueryListDevices
 {
     public class ParamListDevices : QueryParam
     {

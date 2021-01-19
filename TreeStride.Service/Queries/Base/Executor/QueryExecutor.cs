@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TreeStride.Service.Base;
+using Tree.Service.Base;
 
-namespace TreeStride.Service.Queries.Base.Executor
+namespace Tree.Service.Queries.Base.Executor
 {
     public class QueryExecutor<TParam, TResponse> : IQueryExecutor<TParam, TResponse>
         where TParam : QueryParam

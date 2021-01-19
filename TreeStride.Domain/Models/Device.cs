@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TreeStride.Domain.Models.Base;
+using Tree.Domain.Models.Base;
 
-namespace TreeStride.Domain.Models
+namespace Tree.Domain.Models
 {
     public class Device : ModelsBase
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace TreeStride
+namespace Tree
 {
     public class WeatherForecast
     {

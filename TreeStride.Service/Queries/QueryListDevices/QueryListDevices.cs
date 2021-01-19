@@ -2,11 +2,11 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using TreeStride.Data.Contract;
-using TreeStride.Service.Queries.Base;
-using TreeStride.Service.Queries.Base.Executor;
+using Tree.Data.Contract;
+using Tree.Service.Queries.Base;
+using Tree.Service.Queries.Base.Executor;
 
-namespace TreeStride.Service.Queries.QueryListDevices
+namespace Tree.Service.Queries.QueryListDevices
 {
     public class QueryListDevices : QueryExecutor<ParamListDevices, ResponseListDevices>
     {

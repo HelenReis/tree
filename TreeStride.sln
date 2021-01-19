@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeStride", "TreeStride\TreeStride.csproj", "{6D5837A8-43AE-4829-9414-D8AD6FC2EC88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tree", "TreeStride\Tree.csproj", "{6D5837A8-43AE-4829-9414-D8AD6FC2EC88}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{E8B3FF4C-7AE9-4593-95B9-949BB572FDA8}"
 EndProject
