@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Tree.Service.Base;
 
-namespace Tree.Service.Queries.QueryListDevices
+namespace Tree.Service.Queries.Device.QueryListDevices
 {
-    public class ParamListDevices : QueryParam
+    public class ParamListDevices : IRequest<ResponseListDevices>
     {
         public ParamListDevices(int deviceId)
         {

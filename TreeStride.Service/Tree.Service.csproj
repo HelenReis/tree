@@ -5,15 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TreeStride.Data\Tree.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Queries\Device\" />
   </ItemGroup>
 
 </Project>

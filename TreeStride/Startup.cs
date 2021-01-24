@@ -7,10 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Tree.Data.Data;
 using Tree.DI;
-using Tree.Service.Queries.Base;
-using Tree.Service.Queries.QueryListDevices;
-using Tree.Service.Queries.Base.Executor;
-using Tree.Service.Queries.Base.Emitter;
+using MediatR;
+using System.Reflection;
 
 namespace Tree
 {
@@ -27,8 +25,7 @@ namespace Tree
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("Database")));
-            services.AddTransient<QueryExecutor<ParamListDevices, ResponseListDevices>, QueryListDevices>();
-            services.AddTransient<IQueryEmitter, QueryEmitter>();
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             ConfigureDI.Configure(services);
 
             services.AddControllers();

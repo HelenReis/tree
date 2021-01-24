@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Tree.Service.Base;
-using Tree.Service.Queries.Base;
-using Tree.Service.Queries.Base.Emitter;
-using Tree.Service.Queries.Base.Executor;
-using Tree.Service.Queries.QueryListDevices;
+using Tree.Service.Queries.Device.QueryListDevices;
 
 namespace Tree.Controllers
 {
@@ -12,16 +9,13 @@ namespace Tree.Controllers
     [Route("[controller]")]
     public class DeviceController : ControllerBase
     {
-        private readonly IQueryEmitter _emitter;
-        private readonly QueryExecutor<ParamListDevices, ResponseListDevices> _executor;
+        private readonly IMediator _mediator;
 
         public DeviceController(
-            IQueryEmitter emitter,
-            QueryExecutor<ParamListDevices, ResponseListDevices> executor
+            IMediator mediator
             )
         {
-            _emitter = emitter;
-            _executor = executor;
+            _mediator = mediator;
         }
 
         /// <remarks>returns device by id</remarks>
@@ -30,13 +24,8 @@ namespace Tree.Controllers
         [Route("{deviceId:int}")]
         public async virtual Task<IActionResult> GetDevices([FromRoute] int deviceId)
         {
-            //var res = await _executor.ExecuteQuery(new ParamListDevices(deviceId));
-            var res = await _executor.ExecuteQuery(new ParamListDevices(deviceId));
-
+            var res = await _mediator.Send(new ParamListDevices(deviceId));
             return Ok(res);
-
-            /*var exampleJson = "{\n  \"sensorReading\" : [ {\n    \"temperature\" : 2.3021358869347655,\n    \"humidity\" : 7.061401241503109,\n    \"id\" : 5\n  }, {\n    \"temperature\" : 2.3021358869347655,\n    \"humidity\" : 7.061401241503109,\n    \"id\" : 5\n  } ],\n  \"id\" : 0,\n  \"region\" : [ {\n    \"devices\" : [ null, null ],\n    \"lon\" : 5.962133916683182,\n    \"id\" : 6,\n    \"lat\" : 1.4658129805029452\n  }, {\n    \"devices\" : [ null, null ],\n    \"lon\" : 5.962133916683182,\n    \"id\" : 6,\n    \"lat\" : 1.4658129805029452\n  } ],\n  \"enabled\" : true\n}";
-            return new ObjectResult(exampleJson);*/
         }
 
         /// <remarks>gets the average sensor readings of the device in the standard of one week</remarks>
