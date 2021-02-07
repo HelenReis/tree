@@ -8,7 +8,7 @@ using Microsoft.OpenApi.Models;
 using Tree.Data.Data;
 using Tree.DI;
 using MediatR;
-using System.Reflection;
+using System;
 
 namespace Tree
 {
@@ -25,8 +25,9 @@ namespace Tree
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("Database")));
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(AppDomain.CurrentDomain.Load("Tree.Service"));
             ConfigureDI.Configure(services);
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
