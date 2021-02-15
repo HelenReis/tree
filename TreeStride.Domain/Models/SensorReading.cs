@@ -10,5 +10,7 @@ namespace Tree.Domain.Models
         public short Temperature { get; private set; }
 
         public short Humidity { get; private set; }
+
+        public DateTime Date { get; private set; }
     }
 }

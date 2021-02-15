@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
@@ -18,12 +19,13 @@ namespace Tree.Service.Queries.Device.QueryListDevices
         {
             try
             {
-                var device = await _deviceRepository
-                    .GetById(request.DeviceId);
+                var devices = _deviceRepository
+                    .Query()
+                    .ToList();
 
                 return new ResponseListDevices
                 {
-                    Device = device
+                    Devices = devices
                 };
             }
             catch (Exception ex)

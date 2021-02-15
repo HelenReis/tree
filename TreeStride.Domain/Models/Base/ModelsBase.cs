@@ -9,6 +9,6 @@ namespace Tree.Domain.Models.Base
         /// <summary>
         /// id
         /// </summary>
-        public int Id { get; set; }
+        public int Id { get; private set; }
     }
 }

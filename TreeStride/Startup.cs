@@ -24,10 +24,7 @@ namespace Tree
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("Database")));
-            services.AddMediatR(AppDomain.CurrentDomain.Load("Tree.Service"));
-            ConfigureDI.Configure(services);
-
+            ConfigureDI.Configure(services, Configuration);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
