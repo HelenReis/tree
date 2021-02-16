@@ -1,16 +1,17 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
 
-namespace Tree.Service.Queries.Device.QueryListDevices
+namespace Tree.Service.Queries.Device.ListDevices
 {
-    public class QueryListDevices : IRequestHandler<ParamListDevices, ResponseListDevices>
+    public class ListDevices : IRequestHandler<ParamListDevices, ResponseListDevices>
     {
         private readonly IDeviceRepository _deviceRepository;
-        public QueryListDevices(IDeviceRepository deviceRepository)
+
+        public ListDevices(IDeviceRepository deviceRepository)
         {
             _deviceRepository = deviceRepository;
         }
@@ -19,14 +20,11 @@ namespace Tree.Service.Queries.Device.QueryListDevices
         {
             try
             {
-                var devices = _deviceRepository
+                var devices = await _deviceRepository
                     .Query()
-                    .ToList();
+                    .ToListAsync();
 
-                return new ResponseListDevices
-                {
-                    Devices = devices
-                };
+                return new ResponseListDevices { Devices = devices };
             }
             catch (Exception ex)
             {
