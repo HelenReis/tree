@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
@@ -22,6 +23,8 @@ namespace Tree.Service.Queries.Device.ListDevices
             {
                 var devices = await _deviceRepository
                     .Query()
+                    .Take(request.Limit)
+                    .Skip(request.Skip)
                     .ToListAsync();
 
                 return new ResponseListDevices { Devices = devices };

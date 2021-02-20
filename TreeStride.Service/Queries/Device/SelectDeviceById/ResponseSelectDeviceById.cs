@@ -4,6 +4,6 @@ namespace Tree.Service.Queries.Device.SelectDeviceById
 {
     public class ResponseSelectDeviceById
     {
-        public IEnumerable<Domain.Models.Device> Devices { get; set; }
+        public Domain.Models.Device Device { get; set; }
     }
 }

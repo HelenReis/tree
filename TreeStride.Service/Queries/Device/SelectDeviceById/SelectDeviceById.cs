@@ -20,11 +20,10 @@ namespace Tree.Service.Queries.Device.SelectDeviceById
         {
             try
             {
-                var devices = await _deviceRepository
-                    .Query()
-                    .ToListAsync();
+                var device = await _deviceRepository
+                    .GetById(request.DeviceId);
 
-                return new ResponseSelectDeviceById { Devices = devices };
+                return new ResponseSelectDeviceById { Device = device };
             }
             catch (Exception ex)
             {

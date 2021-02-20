@@ -4,6 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
+using System.Linq;
 
 namespace Tree.Service.Queries.Region.ListRegions
 {
@@ -22,6 +23,8 @@ namespace Tree.Service.Queries.Region.ListRegions
             {
                 var regions = await _regionRepository
                     .Query()
+                    .Take(request.Limit)
+                    .Skip(request.Skip)
                     .ToListAsync();
 
                 return new ResponseListRegions { Regions = regions };

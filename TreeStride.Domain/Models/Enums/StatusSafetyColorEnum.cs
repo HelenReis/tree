@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tree.Domain.DTOs.Enums
+namespace Tree.Domain.Models.Enums
 {
     public enum StatusSafetyColorEnum
     {

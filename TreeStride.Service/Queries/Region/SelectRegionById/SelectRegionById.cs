@@ -20,11 +20,10 @@ namespace Tree.Service.Queries.Region.SelectRegionById
         {
             try
             {
-                var regions = await _regionRepository
-                    .Query()
-                    .ToListAsync();
+                var region = await _regionRepository
+                    .GetById(request.RegionId);
 
-                return new ResponseSelectRegionById { Regions = regions };
+                return new ResponseSelectRegionById { Region = region };
             }
             catch (Exception ex)
             {

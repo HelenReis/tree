@@ -1,17 +1,43 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Tree.Data.Contract;
 
 namespace Tree.Service.Queries.Region.ListDevicesByRegion
 {
     class ListDevicesByRegion : IRequestHandler<ParamListDevicesByRegion, ResponseListDevicesByRegion>
     {
-        public Task<ResponseListDevicesByRegion> Handle(ParamListDevicesByRegion request, CancellationToken cancellationToken)
+        private readonly IRegionRepository _regionRepository;
+        public ListDevicesByRegion(IRegionRepository regionRepository)
         {
-            throw new NotImplementedException();
+            _regionRepository = regionRepository;
+        }
+
+        public async Task<ResponseListDevicesByRegion> Handle(ParamListDevicesByRegion request, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var devices = await _regionRepository
+                    .Query()
+                    .Where(region => region.Id == request.RegionId)
+                    .Select(region => region.Devices)
+                    .FirstOrDefaultAsync();
+
+                return new ResponseListDevicesByRegion()
+                {
+                    Devices = devices
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
