@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
@@ -23,7 +24,7 @@ namespace Tree.Service.Queries.Region.SelectRegionById
                 var region = await _regionRepository
                     .GetById(request.RegionId);
 
-                return new ResponseSelectRegionById { Region = region };
+                return new ResponseSelectRegionById(region, HttpStatusCode.OK);
             }
             catch (Exception ex)
             {

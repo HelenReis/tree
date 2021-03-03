@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
@@ -23,7 +24,7 @@ namespace Tree.Service.Queries.Device.SelectDeviceById
                 var device = await _deviceRepository
                     .GetById(request.DeviceId);
 
-                return new ResponseSelectDeviceById { Device = device };
+                return new ResponseSelectDeviceById(device, HttpStatusCode.OK);
             }
             catch (Exception ex)
             {

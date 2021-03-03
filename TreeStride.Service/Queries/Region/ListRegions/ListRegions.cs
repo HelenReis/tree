@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
 using System.Linq;
+using System.Net;
 
 namespace Tree.Service.Queries.Region.ListRegions
 {
@@ -27,7 +28,7 @@ namespace Tree.Service.Queries.Region.ListRegions
                     .Skip(request.Skip)
                     .ToListAsync();
 
-                return new ResponseListRegions { Regions = regions };
+                return new ResponseListRegions(regions, HttpStatusCode.OK);
             }
             catch (Exception ex)
             {

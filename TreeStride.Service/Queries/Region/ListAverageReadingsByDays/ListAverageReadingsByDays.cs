@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
@@ -61,7 +62,7 @@ namespace Tree.Service.Queries.Region.ListAverageReadingsByDays
                         .ReturnStatusSafetyColorByValues(
                             temperature: averageTemperature,
                             humidity: averageHumidity)
-                    ));
+                    ), HttpStatusCode.OK);
 
             return result;
         }

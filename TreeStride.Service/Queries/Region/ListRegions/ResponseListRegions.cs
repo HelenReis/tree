@@ -1,9 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using Tree.Service.Shared;
 
 namespace Tree.Service.Queries.Region.ListRegions
 {
-    public class ResponseListRegions
+    public class ResponseListRegions : BaseResultController
     {
-        public IEnumerable<Domain.Models.Region> Regions { get; set; }
+        public ResponseListRegions(
+            IEnumerable<Domain.Models.Region> regions,
+            HttpStatusCode statusCode) : base(statusCode)
+        {
+            Regions = regions;
+        }
+
+        public IEnumerable<Domain.Models.Region> Regions { get; private set; }
     }
 }

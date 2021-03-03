@@ -1,11 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
+using Tree.Service.Shared;
 
 namespace Tree.Service.Queries.Region.ListDevicesByRegion
 {
-    class ResponseListDevicesByRegion
+    class ResponseListDevicesByRegion : BaseResultController
     {
-        public IEnumerable<Domain.Models.Device> Devices { get;  set; }
+        public ResponseListDevicesByRegion(
+            IEnumerable<Domain.Models.Device> devices,
+            HttpStatusCode statusCode) : base(statusCode)
+        {
+            Devices = devices;
+        }
+
+        public IEnumerable<Domain.Models.Device> Devices { get; set; }
     }
 }

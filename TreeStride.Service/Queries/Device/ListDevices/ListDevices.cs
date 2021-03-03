@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
@@ -27,7 +28,7 @@ namespace Tree.Service.Queries.Device.ListDevices
                     .Skip(request.Skip)
                     .ToListAsync();
 
-                return new ResponseListDevices { Devices = devices };
+                return new ResponseListDevices(devices, HttpStatusCode.OK);
             }
             catch (Exception ex)
             {

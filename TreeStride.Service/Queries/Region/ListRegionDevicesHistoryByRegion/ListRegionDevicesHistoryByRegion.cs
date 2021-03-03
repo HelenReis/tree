@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
@@ -26,7 +27,7 @@ namespace Tree.Service.Queries.Region.ListRegionDevicesHistoryByRegion
                     .Include(d => d.SensorReadings)
                     .ToListAsync();
 
-                return new ResponseListRegionDevicesHistoryByRegion(sensorReadings);
+                return new ResponseListRegionDevicesHistoryByRegion(sensorReadings, HttpStatusCode.OK);
             }
             catch (Exception ex)
             {
