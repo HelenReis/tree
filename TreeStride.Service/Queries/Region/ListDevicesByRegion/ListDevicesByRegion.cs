@@ -13,21 +13,21 @@ namespace Tree.Service.Queries.Region.ListDevicesByRegion
 {
     class ListDevicesByRegion : IRequestHandler<ParamListDevicesByRegion, ResponseListDevicesByRegion>
     {
-        private readonly IRegionRepository _regionRepository;
-        public ListDevicesByRegion(IRegionRepository regionRepository)
+        private readonly IDeviceRepository _deviceRepository;
+
+        public ListDevicesByRegion(IDeviceRepository deviceRepository)
         {
-            _regionRepository = regionRepository;
+            _deviceRepository = deviceRepository;
         }
 
         public async Task<ResponseListDevicesByRegion> Handle(ParamListDevicesByRegion request, CancellationToken cancellationToken)
         {
             try
             {
-                var devices = await _regionRepository
+                var devices = await _deviceRepository
                     .Query()
-                    .Where(region => region.Id == request.RegionId)
-                    .Select(region => region.Devices)
-                    .FirstOrDefaultAsync();
+                    .Where(device => device.RegionId == request.RegionId)
+                    .ToListAsync();
 
                 return new ResponseListDevicesByRegion(devices, HttpStatusCode.OK);
             }
