@@ -8,6 +8,7 @@ namespace Tree.Domain.Models.Enums
     {
         Green = 1,
         Yellow = 2,
-        Red = 3
+        Red = 3,
+        Not_Identified = 4
     }
 }

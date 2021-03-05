@@ -14,6 +14,6 @@ namespace Tree.Service.Queries.Region.ListAverageReadingsByDays
             RegionAverageSensorReading = regionAverageSensorReading;
         }
 
-        public RegionAverageSensorReadingDTO RegionAverageSensorReading { get; set; }
+        public RegionAverageSensorReadingDTO RegionAverageSensorReading { get; private set; }
     }
 }

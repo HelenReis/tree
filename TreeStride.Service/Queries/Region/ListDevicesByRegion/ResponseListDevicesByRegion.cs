@@ -15,6 +15,6 @@ namespace Tree.Service.Queries.Region.ListDevicesByRegion
             Devices = devices;
         }
 
-        public IEnumerable<Domain.Models.Device> Devices { get; set; }
+        public IEnumerable<Domain.Models.Device> Devices { get; private set; }
     }
 }

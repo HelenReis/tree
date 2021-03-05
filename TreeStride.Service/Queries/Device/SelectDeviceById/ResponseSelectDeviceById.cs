@@ -13,6 +13,6 @@ namespace Tree.Service.Queries.Device.SelectDeviceById
             Device = device;
         }
 
-        public Domain.Models.Device Device { get; set; }
+        public Domain.Models.Device Device { get; private set; }
     }
 }

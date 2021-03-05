@@ -54,15 +54,16 @@ namespace Tree.Service.Queries.Region.ListAverageReadingsByDays
             var averageHumidity = (short)(sensorReadings
                 .Aggregate(0, (acc, s) => acc + s.Humidity)/sensorReadings.Count());
 
+            var regionAverageReadings = new RegionAverageSensorReadingDTO(
+                temperature: averageTemperature,
+                humidity: averageHumidity,
+                statusSafetyColor: HelperMeasure
+                    .ReturnStatusSafetyColorByValues(
+                        temperature: averageTemperature,
+                        humidity: averageHumidity));
+
             var result = new ResponseListAverageReadingsByDays(
-                new RegionAverageSensorReadingDTO(
-                    temperature: averageTemperature,
-                    humidity: averageHumidity,
-                    statusSafetyColor: HelperQueries
-                        .ReturnStatusSafetyColorByValues(
-                            temperature: averageTemperature,
-                            humidity: averageHumidity)
-                    ), HttpStatusCode.OK);
+                regionAverageReadings, HttpStatusCode.OK);
 
             return result;
         }

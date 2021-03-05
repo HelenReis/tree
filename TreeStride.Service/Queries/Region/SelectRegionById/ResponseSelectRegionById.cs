@@ -13,6 +13,6 @@ namespace Tree.Service.Queries.Region.SelectRegionById
             Region = region;
         }
 
-        public Domain.Models.Region Region { get; set; }
+        public Domain.Models.Region Region { get; private set; }
     }
 }
