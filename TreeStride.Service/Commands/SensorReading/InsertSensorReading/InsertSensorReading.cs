@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
@@ -26,10 +27,16 @@ namespace Tree.Service.Commands.SensorReading.InsertSensorReading
         {
             try
             {
+                if (!request.SensorReading.IsValid)
+                    return new ResponseInsertSensorReading(
+                        HttpStatusCode.BadRequest, 
+                        request.SensorReading.Notifications);
+
                 _sensorReadingRepository.Create(request.SensorReading);
                 await _unitOfWork.Commit();
 
-                return new ResponseInsertSensorReading(HttpStatusCode.Created);
+                return new ResponseInsertSensorReading
+                    (HttpStatusCode.Created);
             }
             catch (Exception ex)
             {

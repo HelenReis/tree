@@ -95,6 +95,7 @@ namespace Tree.Controllers
             OperationId = "InsertDevice"
         )]
         [SwaggerResponse((int)HttpStatusCode.Created, "The device was created")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [Route("")]
         public async virtual Task<IActionResult> InsertDevice(
             Device device)

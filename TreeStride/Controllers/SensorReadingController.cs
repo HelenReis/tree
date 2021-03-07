@@ -28,6 +28,7 @@ namespace Tree.Controllers
             OperationId = "InsertSensorReading"
         )]
         [SwaggerResponse((int)HttpStatusCode.Created, "The reading was created")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [Route("")]
         public async virtual Task<IActionResult> InsertSensorReading(
             SensorReading reading)

@@ -10,4 +10,9 @@
     <None Remove="ValueObjects\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Flunt" Version="2.0.2" />
+    <PackageReference Include="Flunt.Br" Version="1.4.1" />
+  </ItemGroup>
+
 </Project>

@@ -1,10 +1,12 @@
-﻿using System;
+﻿
+using Flunt.Notifications;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Tree.Domain.Models.Base
 {
-    public class ModelsBase
+    public class ModelsBase : Notifiable<Notification>
     {
         /// <summary>
         /// id

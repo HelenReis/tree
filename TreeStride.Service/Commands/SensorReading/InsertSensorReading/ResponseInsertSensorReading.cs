@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flunt.Notifications;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
@@ -8,7 +9,9 @@ namespace Tree.Service.Commands.SensorReading.InsertSensorReading
 {
     public class ResponseInsertSensorReading : BaseResultController
     {
-        public ResponseInsertSensorReading(HttpStatusCode statusCode) : base(statusCode)
+        public ResponseInsertSensorReading(
+            HttpStatusCode statusCode,
+            IEnumerable<Notification> errorNotifications = null) : base(statusCode, errorNotifications)
         { }
     }
 }

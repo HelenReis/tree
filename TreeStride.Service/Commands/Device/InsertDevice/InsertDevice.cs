@@ -26,6 +26,11 @@ namespace Tree.Service.Commands.Device.InsertDevice
         {
             try
             {
+                if (!request.Device.IsValid)
+                    return new ResponseInsertDevice(
+                        HttpStatusCode.BadRequest,
+                        request.Device.Notifications);
+
                 _deviceRepository.Create(request.Device);
                 await _unitOfWork.Commit();
 
