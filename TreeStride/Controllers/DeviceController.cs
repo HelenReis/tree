@@ -26,7 +26,6 @@ namespace Tree.Controllers
             _mediator = mediator;
         }
 
-        /// <remarks>returns all devices</remarks>
         [HttpGet]
         [SwaggerOperation(
             Summary = "Returns devices",
@@ -48,7 +47,6 @@ namespace Tree.Controllers
             }
         }
 
-        /// <remarks>select device by id</remarks>
         [HttpGet]
         [SwaggerOperation(
             Summary = "Returns device by id",
@@ -68,7 +66,6 @@ namespace Tree.Controllers
             }
         }
 
-        /// <remarks>list devices by region by id</remarks>
         [HttpGet]
         [SwaggerOperation(
             Summary = "Returns devices by region",
@@ -88,7 +85,6 @@ namespace Tree.Controllers
             }
         }
 
-        /// <remarks>select device by id</remarks>
         [HttpPost]
         [SwaggerOperation(
             Summary = "Creates a new device",

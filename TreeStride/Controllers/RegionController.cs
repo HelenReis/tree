@@ -25,7 +25,6 @@ namespace Tree.Controllers
             _mediator = mediator;
         }
 
-        /// <remarks>returns all regions</remarks>
         [HttpGet]
         [SwaggerOperation(
             Summary = "Returns regions",
@@ -47,7 +46,6 @@ namespace Tree.Controllers
             }
         }
 
-        /// <remarks>select region by id</remarks>
         [HttpGet]
         [SwaggerOperation(
             Summary = "Returns region by id",
