@@ -222,6 +222,8 @@ ClientBin/
 *.jfm
 *.pfx
 *.publishsettings
+*.json
+appsettings.*.json
 orleans.codegen.cs
 
 # Including strong name files can present a security risk
@@ -283,9 +285,6 @@ node_modules/
 **/*.Server/GeneratedArtifacts
 **/*.Server/ModelManifest.xml
 _Pvt_Extensions
-
-# Others
-**/*.json
 
 # Paket dependency manager
 .paket/paket.exe
