@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Tree.Service.Queries.Region.ListDevicesByRegion
+namespace Tree.Service.Queries.Device.ListDevicesByRegion
 {
     public class ParamListDevicesByRegion : IRequest<ResponseListDevicesByRegion>
     {

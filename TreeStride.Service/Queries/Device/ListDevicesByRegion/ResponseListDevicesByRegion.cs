@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using Tree.Service.Shared;
 
-namespace Tree.Service.Queries.Region.ListDevicesByRegion
+namespace Tree.Service.Queries.Device.ListDevicesByRegion
 {
     class ResponseListDevicesByRegion : BaseResultController
     {

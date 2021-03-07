@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
 
-namespace Tree.Service.Queries.Region.ListDevicesByRegion
+namespace Tree.Service.Queries.Device.ListDevicesByRegion
 {
     class ListDevicesByRegion : IRequestHandler<ParamListDevicesByRegion, ResponseListDevicesByRegion>
     {

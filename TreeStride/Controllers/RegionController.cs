@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Net;
 using System.Threading.Tasks;
 using Tree.Controllers.Helpers;
-using Tree.Service.Queries.Device.ListDevices;
-using Tree.Service.Queries.Device.SelectDeviceById;
+using Tree.Domain.Models;
+using Tree.Service.Commands.Region.InsertRegion;
 using Tree.Service.Queries.Region.ListAverageReadingsByDays;
-using Tree.Service.Queries.Region.ListDevicesByRegion;
 using Tree.Service.Queries.Region.ListRegionDevicesHistoryByRegion;
 using Tree.Service.Queries.Region.ListRegions;
 using Tree.Service.Queries.Region.SelectRegionById;
@@ -27,6 +27,10 @@ namespace Tree.Controllers
 
         /// <remarks>returns all regions</remarks>
         [HttpGet]
+        [SwaggerOperation(
+            Summary = "Returns regions",
+            OperationId = "GetRegions"
+        )]
         [Route("")]
         public async virtual Task<IActionResult> GetRegions(
             [FromQuery(Name = Constantes.SKIP)] int skip,
@@ -45,43 +49,16 @@ namespace Tree.Controllers
 
         /// <remarks>select region by id</remarks>
         [HttpGet]
-        [Route("{regionId:int}")]
-        public async virtual Task<IActionResult> GetRegionById(int regionId)
+        [SwaggerOperation(
+            Summary = "Returns region by id",
+            OperationId = "GetRegionById"
+        )]
+        [Route("{id:int}")]
+        public async virtual Task<IActionResult> GetRegionById(int id)
         {
             try
             {
-                var res = await _mediator.Send(new ParamSelectRegionById(regionId));
-                return Ok(res);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
-            }
-        }
-
-        /// <remarks>list devices by region by id</remarks>
-        [HttpGet]
-        [Route("{regionId:int}/devices")]
-        public async virtual Task<IActionResult> GetDevicesByRegion(int regionId)
-        {
-            try
-            {
-                var res = await _mediator.Send(new ParamListDevicesByRegion(regionId));
-                return Ok(res);
-            }
-            catch(Exception ex)
-            {
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
-            }
-        }
-
-        [HttpGet]
-        [Route("{regionId:int}/devices/history")]
-        public async virtual Task<IActionResult> GetRegionDevicesHistory(int regionId)
-        {
-            try
-            {
-                var res = await _mediator.Send(new ParamListRegionDevicesHistoryByRegion(regionId));
+                var res = await _mediator.Send(new ParamSelectRegionById(id));
                 return Ok(res);
             }
             catch (Exception ex)
@@ -91,17 +68,61 @@ namespace Tree.Controllers
         }
 
         [HttpGet]
-        [Route("{regionId:int}/days/{days:int}/readings/average")]
-        public async virtual Task<IActionResult> ListAverageReadingsByDays(int regionId, int days)
+        [SwaggerOperation(
+            Summary = "Returns devices history by region",
+            OperationId = "GetRegionDevicesHistory"
+        )]
+        [Route("{id:int}/devices/history")]
+        public async virtual Task<IActionResult> GetRegionDevicesHistory(int id)
+        {
+            try
+            {
+                var res = await _mediator.Send(new ParamListRegionDevicesHistoryByRegion(id));
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [SwaggerOperation(
+            Summary = "Returns average sensor readings by days by region",
+            OperationId = "ListAverageReadingsByDays"
+        )]
+        [Route("{id:int}/days/{days:int}/readings/average")]
+        public async virtual Task<IActionResult> ListAverageReadingsByDays(int id, int days)
         {
             try
             {
                 var res = await _mediator.Send(
-                    new ParamListAverageReadingsByDays(regionId, days));
+                    new ParamListAverageReadingsByDays(id, days));
 
                 return Ok(res);
             }
             catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [SwaggerOperation(
+            Summary = "Creates a new region",
+            OperationId = "InsertRegion"
+        )]
+        [SwaggerResponse((int)HttpStatusCode.Created, "The region was created")]
+        [Route("")]
+        public async virtual Task<IActionResult> InsertRegion(
+            Region region)
+        {
+            try
+            {
+                var res = await _mediator.Send(new ParamInsertRegion(region));
+                return Ok(res);
+            }
+            catch (Exception ex)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
