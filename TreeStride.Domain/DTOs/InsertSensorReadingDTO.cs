@@ -2,14 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Tree.Domain.Models.Base;
+using Tree.Domain.DTOs.Base;
 
-namespace Tree.Domain.Models
+namespace Tree.Domain.DTOs
 {
-    public class SensorReading : ModelsBase
+    public class InsertSensorReadingDTO : DtosBase
     {
-        public SensorReading(short temperature, short humidity, DateTime date)
+        public InsertSensorReadingDTO(short temperature, short humidity, DateTime date)
         {
+            AddNotifications(new Contract<DateTime>()
+                .IsGreaterOrEqualsThan(date, DateTime.Now, "Date", "Dat,e must be entered in real time."));
+
             Temperature = temperature;
             Humidity = humidity;
             Date = date;

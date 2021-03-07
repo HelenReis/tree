@@ -32,7 +32,12 @@ namespace Tree.Service.Commands.SensorReading.InsertSensorReading
                         HttpStatusCode.BadRequest, 
                         request.SensorReading.Notifications);
 
-                _sensorReadingRepository.Create(request.SensorReading);
+                _sensorReadingRepository.Create(
+                    new Domain.Models.SensorReading(
+                        temperature: request.SensorReading.Temperature,
+                        humidity: request.SensorReading.Humidity,
+                        date: request.SensorReading.Date));
+
                 await _unitOfWork.Commit();
 
                 return new ResponseInsertSensorReading

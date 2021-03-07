@@ -5,6 +5,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 using Tree.Controllers.Helpers;
+using Tree.Domain.DTOs;
 using Tree.Domain.Models;
 using Tree.Service.Commands.Device.InsertDevice;
 using Tree.Service.Queries.Device.ListDevices;
@@ -94,7 +95,7 @@ namespace Tree.Controllers
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [Route("")]
         public async virtual Task<IActionResult> InsertDevice(
-            Device device)
+            InsertDeviceDTO device)
         {
             try
             {

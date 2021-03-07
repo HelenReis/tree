@@ -24,7 +24,17 @@ namespace Tree.Service.Commands.Region.InsertRegion
         {
             try
             {
-                _regionRepository.Create(request.Region);
+                if (!request.Region.IsValid)
+                    return new ResponseInsertRegion(
+                        HttpStatusCode.BadRequest,
+                        request.Region.Notifications);
+
+                _regionRepository.Create(
+                    new Domain.Models.Region(
+                        latitude: request.Region.Latitude,
+                        longitude: request.Region.Longitude,
+                        description: request.Region.Description));
+
                 await _unitOfWork.Commit();
 
                 return new ResponseInsertRegion(HttpStatusCode.Created);

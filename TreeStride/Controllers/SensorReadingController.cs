@@ -4,6 +4,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using Tree.Domain.DTOs;
 using Tree.Domain.Models;
 using Tree.Service.Commands.SensorReading.InsertSensorReading;
 
@@ -31,7 +32,7 @@ namespace Tree.Controllers
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [Route("")]
         public async virtual Task<IActionResult> InsertSensorReading(
-            SensorReading reading)
+            InsertSensorReadingDTO reading)
         {
             try
             {

@@ -31,7 +31,8 @@ namespace Tree.Service.Commands.Device.InsertDevice
                         HttpStatusCode.BadRequest,
                         request.Device.Notifications);
 
-                _deviceRepository.Create(request.Device);
+                _deviceRepository.Create(
+                    new Domain.Models.Device(request.Device.Enabled, request.Device.RegionId));
                 await _unitOfWork.Commit();
 
                 return new ResponseInsertDevice(HttpStatusCode.Created);

@@ -5,6 +5,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 using Tree.Controllers.Helpers;
+using Tree.Domain.DTOs;
 using Tree.Domain.Models;
 using Tree.Service.Commands.Region.InsertRegion;
 using Tree.Service.Queries.Region.ListAverageReadingsByDays;
@@ -111,9 +112,10 @@ namespace Tree.Controllers
             OperationId = "InsertRegion"
         )]
         [SwaggerResponse((int)HttpStatusCode.Created, "The region was created")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [Route("")]
         public async virtual Task<IActionResult> InsertRegion(
-            Region region)
+            InsertRegionDTO region)
         {
             try
             {

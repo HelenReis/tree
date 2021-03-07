@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Tree.Domain.Models.Base
 {
-    public class ModelsBase : Notifiable<Notification>
+    public class ModelsBase
     {
         /// <summary>
         /// id

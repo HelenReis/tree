@@ -2,16 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Tree.Domain.DTOs;
 
 namespace Tree.Service.Commands.SensorReading.InsertSensorReading
 {
     public class ParamInsertSensorReading : IRequest<ResponseInsertSensorReading>
     {
-        public ParamInsertSensorReading(Domain.Models.SensorReading sensorReading)
+        public ParamInsertSensorReading(InsertSensorReadingDTO sensorReading)
         {
             SensorReading = sensorReading;
         }
 
-        public Domain.Models.SensorReading SensorReading { get; private set; }
+        public InsertSensorReadingDTO SensorReading { get; private set; }
     }
 }

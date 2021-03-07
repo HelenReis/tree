@@ -1,13 +1,14 @@
 ﻿using MediatR;
+using Tree.Domain.DTOs;
 
 namespace Tree.Service.Commands.Region.InsertRegion
 {
     public class ParamInsertRegion : IRequest<ResponseInsertRegion>
     {
-        public ParamInsertRegion(Domain.Models.Region region) {
+        public ParamInsertRegion(InsertRegionDTO region) {
             Region = region;
         }
 
-        public Domain.Models.Region Region { get; private set; }
+        public InsertRegionDTO Region { get; private set; }
     }
 }

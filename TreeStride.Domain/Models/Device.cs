@@ -11,10 +11,6 @@ namespace Tree.Domain.Models
     {
         public Device(bool enabled, int regionId)
         {
-            AddNotifications(new Contract<int>()
-                .IsGreaterThan(regionId, 0, "RegionId", "It must be an existing region.")
-        );
-
             Enabled = enabled;
             RegionId = regionId;
         }
