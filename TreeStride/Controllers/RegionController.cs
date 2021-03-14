@@ -115,12 +115,12 @@ namespace Tree.Controllers
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [Route("")]
         public async virtual Task<IActionResult> InsertRegion(
-            InsertRegionDTO region)
+            [FromBody]InsertRegionDTO region)
         {
             try
             {
                 var res = await _mediator.Send(new ParamInsertRegion(region));
-                return Ok(res);
+                return StatusCode((int)res.StatusCode);
             }
             catch (Exception ex)
             {

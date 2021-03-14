@@ -8,7 +8,7 @@ namespace Tree.Service.Shared
 {
     public abstract class BaseResultController
     {
-        protected BaseResultController(
+        public BaseResultController(
             HttpStatusCode statusCode,
             IEnumerable<Notification> errorNotifications = null)
         {
@@ -16,8 +16,8 @@ namespace Tree.Service.Shared
             ErrorNotifications = errorNotifications;
         }
 
-        protected HttpStatusCode StatusCode { get; private set; }
+        public HttpStatusCode StatusCode { get; private set; }
 
-        protected IEnumerable<Notification> ErrorNotifications { get; private set; }
+        public IEnumerable<Notification> ErrorNotifications { get; private set; }
     }
 }

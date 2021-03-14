@@ -100,7 +100,7 @@ namespace Tree.Controllers
             try
             {
                 var res = await _mediator.Send(new ParamInsertDevice(device));
-                return Ok(res);
+                return StatusCode((int)res.StatusCode);
             }
             catch (Exception ex)
             {

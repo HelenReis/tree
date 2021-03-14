@@ -37,7 +37,7 @@ namespace Tree.Controllers
             try
             {
                 var res = await _mediator.Send(new ParamInsertSensorReading(reading));
-                return Ok(res);
+                return StatusCode((int)res.StatusCode, res);
             }
             catch (Exception ex)
             {
