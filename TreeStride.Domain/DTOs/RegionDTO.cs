@@ -1,22 +1,21 @@
-﻿using Flunt.Validations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Tree.Domain.DTOs.Base;
 
 namespace Tree.Domain.DTOs
 {
-    public class InsertRegionDTO : ParamDtosBase
+    public class RegionDTO 
     {
-        public InsertRegionDTO(double latitude, double longitude, string description)
+        public RegionDTO(int id, double latitude, double longitude, string description)
         {
-            AddNotifications(new Contract<string>()
-                .IsNotNullOrEmpty(description, "Description", "It must be a valid description."));
-
+            Id = id;
             Latitude = latitude;
             Longitude = longitude;
             Description = description;
         }
+
+        public int Id { get; private set; }
 
         public double Latitude { get; private set; }
 

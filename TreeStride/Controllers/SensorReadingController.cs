@@ -32,7 +32,7 @@ namespace Tree.Controllers
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [Route("")]
         public async virtual Task<IActionResult> InsertSensorReading(
-            InsertSensorReadingDTO reading)
+            [FromBody]InsertSensorReadingDTO reading)
         {
             try
             {

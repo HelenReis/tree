@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Flunt.Notifications;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,29 +15,34 @@ namespace Tree.Service.Commands.SensorReading.InsertSensorReading
     public class InsertSensorReading : IRequestHandler<ParamInsertSensorReading, ResponseInsertSensorReading>
     {
         private readonly ISensorReadingRepository _sensorReadingRepository;
+        private readonly IDeviceRepository _deviceRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private List<Notification> _notifications = new List<Notification>();
 
         public InsertSensorReading(
             ISensorReadingRepository sensorReadingRepository,
+            IDeviceRepository deviceRepository,
             IUnitOfWork unitOfWork)
         {
             _sensorReadingRepository = sensorReadingRepository;
+            _deviceRepository = deviceRepository;
             _unitOfWork = unitOfWork;
         }
         public async Task<ResponseInsertSensorReading> Handle(ParamInsertSensorReading request, CancellationToken cancellationToken)
         {
             try
             {
-                if (!request.SensorReading.IsValid)
+                if (!await Validations(request))
                     return new ResponseInsertSensorReading(
-                        HttpStatusCode.BadRequest, 
-                        request.SensorReading.Notifications);
+                        HttpStatusCode.BadRequest,
+                        _notifications);
 
                 _sensorReadingRepository.Create(
                     new Domain.Models.SensorReading(
                         temperature: request.SensorReading.Temperature,
                         humidity: request.SensorReading.Humidity,
-                        date: request.SensorReading.Date));
+                        date: request.SensorReading.Date,
+                        deviceId: request.SensorReading.DeviceId));
 
                 await _unitOfWork.Commit();
 
@@ -48,6 +54,23 @@ namespace Tree.Service.Commands.SensorReading.InsertSensorReading
                 Console.WriteLine(ex.Message);
                 throw new Exception(ex.Message);
             }
+        }
+
+        private async Task<bool> Validations(ParamInsertSensorReading request)
+        {
+            if (!request.SensorReading.IsValid)
+            {
+                _notifications.AddRange(request.SensorReading.Notifications);
+                return false;
+            }
+
+            if (!await _deviceRepository.AnyAsync(request.SensorReading.DeviceId))
+            {
+                _notifications.Add(new Notification("DeviceId", "It must be an existing device."));
+                return false;
+            }
+
+            return true;
         }
     }
 }

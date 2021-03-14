@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
+using Tree.Domain.DTOs;
 
 namespace Tree.Service.Queries.Region.ListRegionDevicesHistoryByRegion
 {
@@ -25,6 +26,9 @@ namespace Tree.Service.Queries.Region.ListRegionDevicesHistoryByRegion
                 var sensorReadings = await _deviceRepository
                     .Query()
                     .Include(d => d.SensorReadings)
+                    .Select(d => new DeviceDTO(
+                        d.Id, d.Enabled, (d.SensorReadings.Select(s =>
+                        new SensorReadingDTO(s.Id, s.Temperature, s.Humidity, s.Date)))))
                     .ToListAsync();
 
                 return new ResponseListRegionDevicesHistoryByRegion(sensorReadings, HttpStatusCode.OK);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Tree.Data.Contract;
 using System.Linq;
 using System.Net;
+using Tree.Domain.DTOs;
 
 namespace Tree.Service.Queries.Region.ListRegions
 {
@@ -26,6 +27,8 @@ namespace Tree.Service.Queries.Region.ListRegions
                     .Query()
                     .Take(request.Limit)
                     .Skip(request.Skip)
+                    .Select(r => 
+                        new RegionDTO(r.Id, r.Latitude, r.Longitude, r.Description))
                     .ToListAsync();
 
                 return new ResponseListRegions(regions, HttpStatusCode.OK);

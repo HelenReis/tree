@@ -6,7 +6,7 @@ using Tree.Domain.DTOs.Base;
 
 namespace Tree.Domain.DTOs
 {
-    public class InsertDeviceDTO : DtosBase
+    public class InsertDeviceDTO : ParamDtosBase
     {
         public InsertDeviceDTO(bool enabled, int regionId)
         {

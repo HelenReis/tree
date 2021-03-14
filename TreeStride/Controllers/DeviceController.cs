@@ -95,12 +95,12 @@ namespace Tree.Controllers
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [Route("")]
         public async virtual Task<IActionResult> InsertDevice(
-            InsertDeviceDTO device)
+            [FromBody]InsertDeviceDTO device)
         {
             try
             {
                 var res = await _mediator.Send(new ParamInsertDevice(device));
-                return StatusCode((int)res.StatusCode);
+                return StatusCode((int)res.StatusCode, res);
             }
             catch (Exception ex)
             {

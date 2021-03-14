@@ -1,27 +1,26 @@
-﻿using Flunt.Validations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tree.Domain.Models.Base;
+using Tree.Domain.DTOs.Base;
 
-namespace Tree.Domain.Models
+namespace Tree.Domain.DTOs
 {
-    public class SensorReading : ModelsBase
+    public class SensorReadingDTO
     {
-        public SensorReading(short temperature, short humidity, DateTime date, int deviceId)
+        public SensorReadingDTO(int id, short temperature, short humidity, DateTime date)
         {
+            Id = id;
             Temperature = temperature;
             Humidity = humidity;
             Date = date;
-            DeviceId = deviceId;
         }
+
+        public int Id { get; private set; }
 
         public short Temperature { get; private set; }
 
         public short Humidity { get; private set; }
 
         public DateTime Date { get; private set; }
-
-        public int DeviceId { get; private set; }
     }
 }

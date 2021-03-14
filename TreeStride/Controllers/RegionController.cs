@@ -120,7 +120,7 @@ namespace Tree.Controllers
             try
             {
                 var res = await _mediator.Send(new ParamInsertRegion(region));
-                return StatusCode((int)res.StatusCode);
+                return StatusCode((int)res.StatusCode, res);
             }
             catch (Exception ex)
             {

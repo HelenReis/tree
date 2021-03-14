@@ -38,7 +38,7 @@ namespace Tree.Data.Repositories
 
         public async Task<bool> AnyAsync(int deviceId)
         {
-            return await _context.Device.AnyAsync(device => device.Id == deviceId);
+            return await _context.Region.AnyAsync(device => device.Id == deviceId);
         }
 
         public IQueryable<Region> Query()

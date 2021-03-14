@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net;
+using Tree.Domain.DTOs;
 using Tree.Service.Shared;
 
 namespace Tree.Service.Queries.Region.ListRegions
@@ -7,12 +8,12 @@ namespace Tree.Service.Queries.Region.ListRegions
     public class ResponseListRegions : BaseResultController
     {
         public ResponseListRegions(
-            IEnumerable<Domain.Models.Region> regions,
+            IEnumerable<RegionDTO> regions,
             HttpStatusCode statusCode) : base(statusCode)
         {
             Regions = regions;
         }
 
-        public IEnumerable<Domain.Models.Region> Regions { get; private set; }
+        public IEnumerable<RegionDTO> Regions { get; private set; }
     }
 }

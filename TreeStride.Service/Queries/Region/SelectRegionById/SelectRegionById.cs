@@ -1,10 +1,12 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
+using Tree.Domain.DTOs;
 
 namespace Tree.Service.Queries.Region.SelectRegionById
 {
@@ -22,7 +24,10 @@ namespace Tree.Service.Queries.Region.SelectRegionById
             try
             {
                 var region = await _regionRepository
-                    .GetById(request.RegionId);
+                    .Query()
+                    .Where(r => r.Id == request.RegionId)
+                    .Select(r => new RegionDTO(r.Id, r.Latitude, r.Longitude, r.Description))
+                    .FirstOrDefaultAsync();  
 
                 return new ResponseSelectRegionById(region, HttpStatusCode.OK);
             }
