@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Tree.Data.Contract;
 using Tree.Domain.DTOs;
+using Tree.Domain.Models.Enums;
 using Tree.Service.Queries.Helpers;
 
 namespace Tree.Service.Queries.Region.ListAverageReadingsByDays
@@ -54,18 +55,36 @@ namespace Tree.Service.Queries.Region.ListAverageReadingsByDays
             var averageHumidity = (short)(sensorReadings
                 .Aggregate(0, (acc, s) => acc + s.Humidity)/sensorReadings.Count());
 
+            var angstronMeasure = HelperMeasure
+                    .ReturnStatusSafetyColorByValues(
+                        temperature: averageTemperature,
+                        humidity: averageHumidity);
+
             var regionAverageReadings = new RegionAverageSensorReadingDTO(
                 temperature: averageTemperature,
                 humidity: averageHumidity,
-                statusSafetyColor: HelperMeasure
-                    .ReturnStatusSafetyColorByValues(
-                        temperature: averageTemperature,
-                        humidity: averageHumidity));
+                statusSafetyColor: angstronMeasure,
+                message: Message(angstronMeasure));
 
             var result = new ResponseListAverageReadingsByDays(
                 regionAverageReadings, HttpStatusCode.OK);
 
             return result;
+        }
+
+        private string Message(StatusSafetyColorEnum status)
+        {
+            switch (status)
+            {
+                case StatusSafetyColorEnum.Red:
+                    return "Red - Endangered region!";
+                case StatusSafetyColorEnum.Yellow:
+                    return "Yellow - Keep an eye";
+                case StatusSafetyColorEnum.Green:
+                    return "Green - Uff. Everything is fine!";
+                default:
+                    return "Situation not found! Please contact for support.";
+            }
         }
     }
 }
