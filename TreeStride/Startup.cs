@@ -9,6 +9,7 @@ using Tree.Data.Data;
 using Tree.DI;
 using MediatR;
 using System;
+using System.IO;
 
 namespace Tree
 {
@@ -40,11 +41,7 @@ namespace Tree
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tree v1"));
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -53,6 +50,12 @@ namespace Tree
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tree v1");
             });
         }
     }
