@@ -15,7 +15,7 @@ using Tree.Service.Queries.Device.SelectDeviceById;
 namespace Tree.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class DeviceController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -72,7 +72,7 @@ namespace Tree.Controllers
             Summary = "Returns devices by region",
             OperationId = "GetDevicesByRegion"
         )]
-        [Route("{id:int}/devices")]
+        [Route("region/{id:int}")]
         public async virtual Task<IActionResult> GetDevicesByRegion(int id)
         {
             try

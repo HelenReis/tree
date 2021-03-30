@@ -17,8 +17,8 @@ namespace Tree.Domain.DTOs
             RegionId = regionId;
         }
 
-        public bool Enabled { get; private set; }
+        public bool Enabled { get; set; }
 
-        public int RegionId { get; private set; }
+        public int RegionId { get; set; }
     }
 }

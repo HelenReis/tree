@@ -16,7 +16,7 @@ using Tree.Service.Queries.Region.SelectRegionById;
 namespace Tree.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class RegionController : ControllerBase
     {
         private readonly IMediator _mediator;

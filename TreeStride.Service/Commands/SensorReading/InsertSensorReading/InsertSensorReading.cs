@@ -41,7 +41,7 @@ namespace Tree.Service.Commands.SensorReading.InsertSensorReading
                     new Domain.Models.SensorReading(
                         temperature: request.SensorReading.Temperature,
                         humidity: request.SensorReading.Humidity,
-                        date: request.SensorReading.Date,
+                        date: DateTime.Now,
                         deviceId: request.SensorReading.DeviceId));
 
                 await _unitOfWork.Commit();

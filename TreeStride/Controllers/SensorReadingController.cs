@@ -11,7 +11,7 @@ using Tree.Service.Commands.SensorReading.InsertSensorReading;
 namespace Tree.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class SensorReadingController : ControllerBase
     {
         private readonly IMediator _mediator;

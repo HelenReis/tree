@@ -55,7 +55,9 @@ namespace Tree
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
+                c.DefaultModelsExpandDepth(-1); // Disable swagger schemas at bottom
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tree v1");
+                c.RoutePrefix = string.Empty;
             });
         }
     }

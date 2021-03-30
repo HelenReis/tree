@@ -1,7 +1,5 @@
-﻿using Flunt.Validations;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Flunt.Notifications;
+using Flunt.Validations;
 using Tree.Domain.DTOs.Base;
 
 namespace Tree.Domain.DTOs
@@ -18,10 +16,10 @@ namespace Tree.Domain.DTOs
             Description = description;
         }
 
-        public double Latitude { get; private set; }
+        public double Latitude { get; set; }
 
-        public double Longitude { get; private set; }
+        public double Longitude { get; set; }
 
-        public string Description { get; private set; }
+        public string Description { get; set; }
     }
 }
